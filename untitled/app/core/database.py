@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import (
 from sqlalchemy.orm import declarative_base
 
 DATABASE_URL = (
-    "mysql+asyncmy://root:root@mysql:3306/unity_game"
+    "mysql+asyncmy://unity_user:root@127.0.0.1:3306/unity_game"
 )
 
 engine = create_async_engine(
