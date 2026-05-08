@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from app.api.v1.auth import router as auth_router
 from app.api.v1.health import router as health_router
 from app.api.v1.leaderboard import router as leaderboard_router
+from app.api.v1.progress import router as progress_router
+from app.api.v1.story import router as story_router
 
 app = FastAPI(
     title="Unity Game Backend"
@@ -20,6 +22,16 @@ app.include_router(
 
 app.include_router(
     leaderboard_router,
+    prefix="/api/v1"
+)
+
+app.include_router(
+    progress_router,
+    prefix="/api/v1"
+)
+
+app.include_router(
+    story_router,
     prefix="/api/v1"
 )
 

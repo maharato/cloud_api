@@ -31,3 +31,14 @@ class LeaderboardService:
             }
             for row in rows
         ]
+
+    @staticmethod
+    async def submit_score(db, player_id, score):
+        new_entry = LeaderboardEntry(
+            player_id=player_id,
+            score=score
+        )
+        db.add(new_entry)
+        await db.commit()
+        await db.refresh(new_entry)
+        return new_entry
